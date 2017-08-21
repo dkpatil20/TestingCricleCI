@@ -14,6 +14,8 @@
 		A47D64181F4B0ADD00E7C7D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47D64161F4B0ADD00E7C7D8 /* LaunchScreen.storyboard */; };
 		A47D64231F4B0ADE00E7C7D8 /* TestingCricleCITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D64221F4B0ADE00E7C7D8 /* TestingCricleCITests.swift */; };
 		A47D642E1F4B0ADE00E7C7D8 /* TestingCricleCIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D642D1F4B0ADE00E7C7D8 /* TestingCricleCIUITests.swift */; };
+		A47D64401F4B0BA600E7C7D8 /* circle.yml in Resources */ = {isa = PBXBuildFile; fileRef = A47D643F1F4B0BA600E7C7D8 /* circle.yml */; };
+		A47D64431F4B145600E7C7D8 /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = A47D64421F4B145600E7C7D8 /* config.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		A47D64291F4B0ADE00E7C7D8 /* TestingCricleCIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestingCricleCIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47D642D1F4B0ADE00E7C7D8 /* TestingCricleCIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCricleCIUITests.swift; sourceTree = "<group>"; };
 		A47D642F1F4B0ADE00E7C7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A47D643F1F4B0BA600E7C7D8 /* circle.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.yml; sourceTree = "<group>"; };
+		A47D64421F4B145600E7C7D8 /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		A47D64011F4B0ADD00E7C7D8 = {
 			isa = PBXGroup;
 			children = (
+				A47D64411F4B145600E7C7D8 /* .circleci */,
+				A47D643F1F4B0BA600E7C7D8 /* circle.yml */,
 				A47D640C1F4B0ADD00E7C7D8 /* TestingCricleCI */,
 				A47D64211F4B0ADE00E7C7D8 /* TestingCricleCITests */,
 				A47D642C1F4B0ADE00E7C7D8 /* TestingCricleCIUITests */,
@@ -123,6 +129,14 @@
 				A47D642F1F4B0ADE00E7C7D8 /* Info.plist */,
 			);
 			path = TestingCricleCIUITests;
+			sourceTree = "<group>";
+		};
+		A47D64411F4B145600E7C7D8 /* .circleci */ = {
+			isa = PBXGroup;
+			children = (
+				A47D64421F4B145600E7C7D8 /* config.yml */,
+			);
+			path = .circleci;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +249,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47D64401F4B0BA600E7C7D8 /* circle.yml in Resources */,
 				A47D64181F4B0ADD00E7C7D8 /* LaunchScreen.storyboard in Resources */,
 				A47D64151F4B0ADD00E7C7D8 /* Assets.xcassets in Resources */,
 				A47D64131F4B0ADD00E7C7D8 /* Main.storyboard in Resources */,
+				A47D64431F4B145600E7C7D8 /* config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

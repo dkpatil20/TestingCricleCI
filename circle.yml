@@ -1,10 +1,12 @@
+general:
+  branches:
+    ignore:
+      - /WIP\-.*/
+
 machine:
-  environment:
-    # CocoaPods versions greater than 0.34 require
-    # your terminal to be using UTF-8 encoding.
-    LANG: en_US.UTF-8
   xcode:
-    version: "7.0"
+    version: "7.3"
+
 dependencies:
   pre:
     - sudo gem install cocoapods --version 0.38.2
@@ -24,17 +26,25 @@ test:
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
         -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6'
-        -workspace <YOUR_APP>.xcworkspace
-        -scheme "<YOUR_APP>"
+        -workspace TestingCricleCI.xcworkspace
+        -scheme "TestingCricleCI"
         test |
       tee $CIRCLE_ARTIFACTS/xcode_raw.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
 deployment:
-  hockey:
-    branch: [dev, master]
+  internal-epic:
+    branch: /^epic\-\-.*/
     commands:
-      - ./scripts/CircleCI/install_certificates_and_profiles.sh
-      - xcodebuild archive -workspace <YOUR_APP>.xcworkspace -scheme <YOUR_APP> -archivePath <YOUR_APP>.xcarchive
-      - xcodebuild -exportArchive -archivePath <YOUR_APP>.xcarchive -exportPath ./ -exportFormat ipa -exportProvisioningProfile "<YOUR_APP_PROVISIONING_PROFILE_NAME>"
-      - ./scripts/CircleCI/remove_certificates_and_profiles.sh
-      - ./scripts/CircleCI/deploy_hockeyapp.sh
+      - sh circle-deploy.sh
+  internal-feature:
+    branch: /^feature\-\-.*/
+    commands:
+      - sh circle-deploy.sh
+  internal-master:
+    branch: /^master$/
+    commands:
+      - sh circle-deploy.sh
+  release:
+    branch: /^release\--?\d+\.\d+\.\d+/
+    commands:
+      - sh circle-deploy.sh appstore
